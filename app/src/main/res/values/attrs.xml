@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="lrcview">
+        <attr name="progress_start_color" format="color"></attr>
+        <attr name="progress_end_color" format="color"></attr>
+        <attr name="lrc_focus_color" format="color"></attr>
+        <attr name="lrc_unfocus_color" format="color"></attr>
+
+    </declare-styleable>
+</resources>
