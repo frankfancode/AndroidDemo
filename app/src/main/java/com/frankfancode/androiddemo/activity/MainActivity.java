@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         demoList = new ArrayList<>();
         demoList.add(new Demo("Lrc Custom View", LrcActivity.class));
         demoList.add(new Demo("TestAIDLProxy", TestAIDLProxyActivity.class));
-        demoList.add(new Demo("Lrc Custom View", LrcActivity.class));
+        demoList.add(new Demo("Deal card View Pager", DeailCardActivity.class));
         demoList.add(new Demo("Lrc Custom View", LrcActivity.class));
         demoList.add(new Demo("Lrc Custom View", LrcActivity.class));
         demoList.add(new Demo("Lrc Custom View", LrcActivity.class));
