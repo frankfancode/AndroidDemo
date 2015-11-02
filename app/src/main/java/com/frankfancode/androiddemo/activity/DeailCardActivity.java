@@ -1,40 +1,41 @@
 package com.frankfancode.androiddemo.activity;
 
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.frankfancode.androiddemo.R;
+import com.frankfancode.androiddemo.adapter.DealCardPageAdapter;
+import com.frankfancode.androiddemo.entity.Card;
+import com.frankfancode.androiddemo.utils.Utils;
+import com.frankfancode.androiddemo.widget.DealCardViewPager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class DeailCardActivity extends AppCompatActivity {
+    private Activity mActivity = this;
 
-    private ViewPager mCardViewPager;
-    private DealCardPageAdapter dcPagerAdapter;
-    private List<View> viewList=new ArrayList<>();
+
+    private DealCardViewPager mCardViewPager;
+    private DealCardPageAdapter mDealCardPagerAdapter;
+    private List<Card> mCardList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deail_card);
-        mCardViewPager = (ViewPager) findViewById(R.id.vp_deal_card);
-        TextView v=new TextView(this);
-        v.setText("test1");v=new TextView(this);viewList.add(v);
-        v.setText("test2");v=new TextView(this);viewList.add(v);
-        v.setText("test3");v=new TextView(this);viewList.add(v);
-        v.setText("test4");v=new TextView(this);viewList.add(v);
-        v.setText("test5");v=new TextView(this);viewList.add(v);
-        dcPagerAdapter=new DealCardPageAdapter(viewList);
-        mCardViewPager.setAdapter(dcPagerAdapter);
+        mCardViewPager = (DealCardViewPager) findViewById(R.id.vp_deal_card);
+
+        mCardList.add(new Card(Utils.resToUriString(mActivity, R.drawable.a), "picture a"));
+        mCardList.add(new Card(Utils.resToUriString(mActivity, R.drawable.b), "picture b"));
+        mCardList.add(new Card(Utils.resToUriString(mActivity, R.drawable.c), "picture c"));
+        mCardList.add(new Card(Utils.resToUriString(mActivity, R.drawable.d), "picture d"));
+        mDealCardPagerAdapter = new DealCardPageAdapter(getSupportFragmentManager(),mCardList);
+        mCardViewPager.setAdapter(mDealCardPagerAdapter);
 
 
     }
@@ -61,35 +62,5 @@ public class DeailCardActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class DealCardPageAdapter extends PagerAdapter{
-        List<View> viewLists;
 
-        public DealCardPageAdapter(List<View> viewLists) {
-            this.viewLists = viewLists;
-        }
-
-        @Override
-        public int getCount() {
-            if (null==viewLists){
-                return 0;
-            }
-            return viewLists.size();
-        }
-
-        @Override
-        public boolean isViewFromObject(View view, Object object) {
-            return view==object;
-        }
-        //销毁Item
-        @Override
-        public void destroyItem(View view, int position, Object object)
-        {
-            ((ViewPager) view).removeView(viewLists.get(position));
-        }
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            container.addView(viewLists.get(position),0);
-            return viewLists.get(position);
-        }
-    }
 }

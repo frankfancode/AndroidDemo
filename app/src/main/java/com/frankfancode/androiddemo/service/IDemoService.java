@@ -2,11 +2,11 @@
  * This file is auto-generated.  DO NOT MODIFY.
  * Original file: E:\\project\\AIDLServerDemo\\app\\src\\main\\aidl\\com\\frankfancode\\aidlserverdemo\\IDemoService.aidl
  */
-package com.frankfancode.aidlserverdemo;
+package com.frankfancode.androiddemo.service;
 public interface IDemoService extends android.os.IInterface
 {
 /** Local-side IPC implementation stub class. */
-public static abstract class Stub extends android.os.Binder implements com.frankfancode.aidlserverdemo.IDemoService
+public static abstract class Stub extends android.os.Binder implements IDemoService
 {
 private static final String DESCRIPTOR = "com.frankfancode.aidlserverdemo.IDemoService";
 /** Construct the stub at attach it to the interface. */
@@ -18,16 +18,16 @@ this.attachInterface(this, DESCRIPTOR);
  * Cast an IBinder object into an com.frankfancode.aidlserverdemo.IDemoService interface,
  * generating a proxy if needed.
  */
-public static com.frankfancode.aidlserverdemo.IDemoService asInterface(android.os.IBinder obj)
+public static IDemoService asInterface(android.os.IBinder obj)
 {
 if ((obj==null)) {
 return null;
 }
 android.os.IInterface iin = obj.queryLocalInterface(DESCRIPTOR);
-if (((iin!=null)&&(iin instanceof com.frankfancode.aidlserverdemo.IDemoService))) {
-return ((com.frankfancode.aidlserverdemo.IDemoService)iin);
+if (((iin!=null)&&(iin instanceof IDemoService))) {
+return ((IDemoService)iin);
 }
-return new com.frankfancode.aidlserverdemo.IDemoService.Stub.Proxy(obj);
+return new Stub.Proxy(obj);
 }
 @Override public android.os.IBinder asBinder()
 {
@@ -53,7 +53,7 @@ return true;
 }
 return super.onTransact(code, data, reply, flags);
 }
-private static class Proxy implements com.frankfancode.aidlserverdemo.IDemoService
+private static class Proxy implements IDemoService
 {
 private android.os.IBinder mRemote;
 Proxy(android.os.IBinder remote)

@@ -131,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
             return convertView;
         }
 
-        public class ViewHolder {
+        private class ViewHolder {
             public TextView demoTitleTextView;
         }
     }
